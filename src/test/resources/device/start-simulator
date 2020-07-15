@@ -1,0 +1,7 @@
+#!/bin/sh
+
+clear
+echo "Starting IOS Simulator ..."
+
+cd $1
+open -a Simulator --args -CurrentDeviceUDID 1CD844FE-9E9B-4C2B-BFD7-3CFA5A79D946

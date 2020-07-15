@@ -1,0 +1,56 @@
+group 'AppiumIOSTraining'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testRuntime
+    }
+}
+
+dependencies {
+    // Appium
+    compile group: 'io.appium', name: 'java-client', version: '7.0.0'
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'
+    compile group: 'commons-io', name: 'commons-io', version: '2.7'
+    compile group: 'commons-validator', name: 'commons-validator', version: '1.6'
+
+    // Selenium
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+
+    // TestNG
+    testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
+
+    // YAML
+    compile group: 'org.yaml', name: 'snakeyaml', version: '1.26'
+
+    // LOG
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+}
+
+task iosAppTest(type: Test) {
+    systemProperty 'application', System.getProperties().getOrDefault('application', 'app')
+
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/testng-app.xml'
+    }
+}
+
+task iosWebTest(type: Test) {
+    systemProperty 'application', System.getProperties().getOrDefault('application', 'web')
+
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/testng-web.xml'
+    }
+}

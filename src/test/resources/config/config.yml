@@ -1,0 +1,13 @@
+
+# Path
+java_home: /Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home
+xcode_path: /Applications/Xcode.app/Contents/Developer/Applications
+
+# App
+application: /src/test/resources/app/UICatalog.app
+device_name: iPhone 8
+
+# Url
+url: http://automationpractice.com/
+user: bright.selvam@gmail.com
+password: P@ssw0rd12*
